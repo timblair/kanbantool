@@ -2,10 +2,11 @@ require (File.expand_path('./../../../spec_helper', __FILE__))
 
 describe KanbanTool::Board do
 
-  let(:board)      { KanbanTool::Board.new }
-  let(:board_hash) { KanbanTool::Board::FIELDS.inject({}) { |h,f| h[f] = f*3; h } }
-  let(:stage)      { {"id" => "1", "name" => "foo", "description" => "bar", "position" => 1} }
-  let(:stages)     { [stage, stage, stage] }
+  let(:board)        { KanbanTool::Board.new }
+  let(:board_params) { KanbanTool::Board::FIELDS.inject({}) { |h,f| h[f] = f*3; h } }
+  let(:board_hash)   { board_params }
+  let(:stage)        { {"id" => "1", "name" => "foo", "description" => "bar", "position" => 1} }
+  let(:stages)       { [stage, stage, stage] }
 
   describe "#load!" do
     let(:extra_hash_param) { board_hash.merge({ "foo" => "bar" }) }
@@ -46,9 +47,9 @@ describe KanbanTool::Board do
   end
 
   describe ".create_from_hash" do
-    context "without stages" do
-      let(:board) { KanbanTool::Board.create_from_hash(board_hash) }
+    let(:board) { KanbanTool::Board.create_from_hash(board_hash) }
 
+    context "without stages" do
       it "returns a board instance" do
         board.must_be_instance_of KanbanTool::Board
       end
@@ -63,8 +64,7 @@ describe KanbanTool::Board do
     end
 
     context "with stages" do
-      let(:board_hash_with_stages) { board_hash.merge({"workflow_stages" => stages}) }
-      let(:board) { KanbanTool::Board.create_from_hash(board_hash_with_stages) }
+      let(:board_hash) { board_params.merge({"workflow_stages" => stages}) }
 
       it "populates stages" do
         board.stages.size.must_equal stages.size
