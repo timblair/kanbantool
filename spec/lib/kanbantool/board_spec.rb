@@ -46,7 +46,7 @@ describe KanbanTool::Board do
   end
 
   describe ".create_from_hash" do
-    describe "without stages" do
+    context "without stages" do
       let(:board) { KanbanTool::Board.create_from_hash(board_hash) }
 
       it "returns a board instance" do
@@ -62,7 +62,7 @@ describe KanbanTool::Board do
       end
     end
 
-    describe "with stages" do
+    context "with stages" do
       let(:board_hash_with_stages) { board_hash.merge({"workflow_stages" => stages}) }
       let(:board) { KanbanTool::Board.create_from_hash(board_hash_with_stages) }
 
