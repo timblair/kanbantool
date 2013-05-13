@@ -22,6 +22,10 @@ describe KanbanTool::Client do
     it "returns an array of boards" do
       subject.each { |b| b.must_be_instance_of(KanbanTool::Board) }
     end
+
+    it "populates all board objects" do
+      subject.each { |b| b.id.wont_be_nil }
+    end
   end
 
   describe "#tasks" do
@@ -35,8 +39,12 @@ describe KanbanTool::Client do
       subject.must_be_instance_of(Array)
     end
 
-    it "returns an array of boards" do
+    it "returns an array of tasks" do
       subject.each { |b| b.must_be_instance_of(KanbanTool::Task) }
+    end
+
+    it "populates all task objects" do
+      subject.each { |b| b.id.wont_be_nil }
     end
   end
 
