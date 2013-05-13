@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["tim@bla.ir"]
   spec.description   = %q{Easy access to Kanban Tool's API}
   spec.summary       = %q{Easy access to Kanban Tool's API}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/timblair/kanbantool"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
