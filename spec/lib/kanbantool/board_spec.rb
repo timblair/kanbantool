@@ -41,9 +41,7 @@ describe KanbanTool::Board do
     end
 
     it "freezes all stages" do
-      board.stages.first.frozen?.must_equal true
-      # Why does this throw a "wrong number of arguments (2 for 3)" error?
-      # board.stages.first.must_be :frozen?
+      board.stages.first.must_be :frozen?
     end
   end
 
