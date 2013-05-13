@@ -1,7 +1,7 @@
 module KanbanTool
   class Task
 
-    FIELDS = %w{ id name description created_at version last_activity_on }
+    FIELDS = %w{ id name description created_at updated_at archived_at assigned_user }
     FIELDS.each { |f| attr_reader f.to_sym }
 
     def self.create_from_hash(hash)
