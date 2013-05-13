@@ -1,11 +1,13 @@
 require "httparty"
 require "json"
 
+require_relative "board"
+
 module KanbanTool
   class Client
     include HTTParty
 
-    attr_accessor :domain, :token
+    attr_reader :domain, :token
 
     def initialize(domain, token)
       @domain = domain
@@ -13,11 +15,13 @@ module KanbanTool
     end
 
     def boards
-      get("boards")
+      get("boards").collect do |board|
+        Board.create_from_hash board
+      end
     end
 
     def board(board_id)
-      get("boards/#{board_id}")
+      Board.create_from_hash get("boards/#{board_id}")
     end
 
     def users(board_id)
@@ -51,7 +55,15 @@ module KanbanTool
     def get(path)
       r = HTTParty.get url_for(path), params
       raise "Error: #{url_for(path)} => #{r.inspect}" if r.code != 200
-      return JSON.parse(r.body)
+      unwrap JSON.parse(r.body)
+    end
+
+    def unwrap(data)
+      if data.is_a? Array
+        data.collect { |item| unwrap item }
+      else
+        data["board"].nil? ? data : data["board"]
+      end
     end
 
   end

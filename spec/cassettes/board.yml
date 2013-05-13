@@ -1,0 +1,50 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://test.kanbantool.com/api/v1/boards/12345.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      X-Kanbantooltoken:
+      - 123456789ABC
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 10 May 2013 14:35:50 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - '200'
+      X-Rack-Cache:
+      - miss
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Etag:
+      - ! '"56215f2e9fdc84ee89170720de5cdfe9"'
+      X-Runtime:
+      - '0.095858'
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Server:
+      - kanbantool.com
+    body:
+      encoding: US-ASCII
+      string: ! '{"board":{"swimlanes":[{"board_id":12345,"name":"Project status","id":77669,"limit":null,"position":1,"description":""}],"owner_id":22825,"created_at":"2013-05-02T15:01:16+01:00","cumulative_flow_updated_at":"2013-05-10T03:34:05+01:00","folder_id":null,"version":178,"board_template_id":"personal_basic","last_activity_on":"2013-05-10","deleted_at":null,"id":12345,"name":"Project
+        Status Board","workflow_stages":[{"board_id":12345,"lane_width":1,"lane_type_id":null,"name":null,"id":284733,"parent_id":null,"limit":null,"position":1,"description":null},{"board_id":12345,"lane_width":1,"lane_type_id":null,"name":"Backlog","id":284735,"parent_id":284733,"limit":null,"position":1,"description":""},{"board_id":12345,"lane_width":1,"lane_type_id":null,"name":"Briefing","id":286335,"parent_id":284733,"limit":null,"position":1,"description":"Actions
+        to be carried out outside of the project team prior to scheduling, requirements
+        gathering and development."},{"board_id":12345,"lane_width":1,"lane_type_id":null,"name":"Waiting
+        for resource","id":286337,"parent_id":284733,"limit":null,"position":1,"description":""},{"board_id":12345,"lane_width":1,"lane_type_id":null,"name":"Functional
+        spec","id":284737,"parent_id":284733,"limit":null,"position":1,"description":""},{"board_id":12345,"lane_width":1,"lane_type_id":null,"name":"Technical
+        spec","id":284755,"parent_id":284733,"limit":null,"position":1,"description":""},{"board_id":12345,"lane_width":1,"lane_type_id":null,"name":"Development","id":284739,"parent_id":284733,"limit":null,"position":1,"description":""},{"board_id":12345,"lane_width":1,"lane_type_id":null,"name":"QA","id":284741,"parent_id":284733,"limit":null,"position":1,"description":""},{"board_id":12345,"lane_width":1,"lane_type_id":null,"name":"Live","id":284743,"parent_id":284733,"limit":null,"position":1,"description":""}],"external_id_sequence":1,"description":"","position":null,"card_types":[{"board_id":12345,"is_default":true,"color_ref":"yellow","name":"yellow","id":250943,"is_disabled":false,"position":1},{"board_id":12345,"is_default":false,"color_ref":"orange","name":"orange","id":250945,"is_disabled":false,"position":2},{"board_id":12345,"is_default":false,"color_ref":"red","name":"red","id":250947,"is_disabled":false,"position":3},{"board_id":12345,"is_default":false,"color_ref":"blue","name":"blue","id":250949,"is_disabled":false,"position":4},{"board_id":12345,"is_default":false,"color_ref":"green","name":"green","id":250951,"is_disabled":false,"position":5},{"board_id":12345,"is_default":false,"color_ref":"white","name":"white","id":250953,"is_disabled":false,"position":6}]}}'
+    http_version: 
+  recorded_at: Fri, 10 May 2013 14:35:50 GMT
+recorded_with: VCR 2.4.0
