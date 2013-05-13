@@ -60,7 +60,9 @@ module KanbanTool
       if data.is_a? Array
         data.collect { |item| unwrap item }
       else
-        data["board"].nil? ? data : data["board"]
+        keys = %w{ board task shared_item_user }
+        key = keys.find { |key| !data[key].nil? }
+        data.include?(key) ? data[key] : data
       end
     end
 
