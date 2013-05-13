@@ -1,5 +1,6 @@
 require "kanbantool/version"
 require "kanbantool/client"
+require "kanbantool/board"
 
 module KanbanTool
 

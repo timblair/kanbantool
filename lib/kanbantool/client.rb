@@ -1,8 +1,6 @@
 require "httparty"
 require "json"
 
-require_relative "board"
-
 module KanbanTool
   class Client
     include HTTParty
