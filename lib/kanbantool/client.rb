@@ -27,7 +27,9 @@ module KanbanTool
     end
 
     def tasks(board_id)
-      get("boards/#{board_id}/tasks")
+      get("boards/#{board_id}/tasks").collect do |task|
+        Task.create_from_hash task
+      end
     end
 
     def activity(board_id)
