@@ -1,9 +1,7 @@
 require "bundler/gem_tasks"
-require "rake/testtask"
 
-Rake::TestTask.new do |t|
-  t.test_files = FileList["spec/lib/kanbantool/*_spec.rb"]
-  t.verbose = true
+task :test do
+  Dir.glob('./spec/**/*_spec.rb') { |f| require f }
 end
 
 task :default => :test
